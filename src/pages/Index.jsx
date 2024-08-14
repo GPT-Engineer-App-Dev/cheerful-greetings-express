@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,6 +12,12 @@ const Index = () => {
   const [showGreeting, setShowGreeting] = useState(false);
   const { toast } = useToast();
   const { isConfettiActive, triggerConfetti } = useConfetti();
+
+  useEffect(() => {
+    // This will cause a runtime error as soon as the component mounts
+    const nonExistentFunction = undefined;
+    nonExistentFunction();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
